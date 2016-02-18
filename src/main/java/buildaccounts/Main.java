@@ -1,6 +1,5 @@
 package buildaccounts;
 
-import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -8,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
     public static void main(String[] args) {
-        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("buildaccounts.applicationContext.xml")) {
+        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml")) {
             AccountService accountService = (AccountService) context.getBean("accountService");
             accountService.printSomething();
         }

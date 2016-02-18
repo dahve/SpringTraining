@@ -1,5 +1,6 @@
 package builders;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -8,14 +9,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) {
-        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/builders.applicationContext.xml")) {
+        //try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/builders.applicationContext.xml")) {
 
-            System.out.println("hello");
-            WorkProject proj = (WorkProject) context.getBean("project");
-            System.out.println("cost" + proj.calculateCost());
+//            System.out.println("hello");
+ //           WorkProject proj = (WorkProject) context.getBean("project");
+  //          System.out.println("cost" + proj.calculateCost());
+        ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        WorkProject project = (WorkProject) context.getBean("project");
+        project.calculateCost();
 
 
-        }
+//        }
     }
 
 
