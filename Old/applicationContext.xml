@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:lang="http://www.springframework.org/schema/lang" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+	<bean id="helloWorldBean" class="xmlconfig.HelloWorld">
+		<constructor-arg value = "Huw" />
+	</bean>
+
+	<bean id="shape1" class="core.Circle">
+		<constructor-arg value = "10"/>
+	</bean>
+
+	<bean id="shape2" class="core.Rectangle">
+		<property name="length" value="10"/>
+		<property name="width" value="10"/>
+	</bean>
+	<bean id="hammer" class="plumber_new.Hammer">
+		  <property name="size" value="100"></property>
+	</bean>
+
+	<bean id="handyman" class ="plumber_new.Plumber">
+		<constructor-arg value ="Mario"/>
+        <constructor-arg> <ref bean ="hammer" /></constructor-arg>
+	</bean>
+</beans>
